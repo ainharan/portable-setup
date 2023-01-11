@@ -1,6 +1,9 @@
 #!/bin/bash
+#required for running alacritty: nixGL alacritty
+nix-channel --add https://github.com/guibou/nixGL/archive/main.tar.gz nixgl && nix-channel --update
 nix-env -iA \
-   nixpkgs.antibody \
+    nixgl.auto.nixGLDefault \
+    nixpkgs.antibody \
     nixpkgs.zsh \
     nixpkgs.git \
     nixpkgs.neovim \
@@ -13,6 +16,8 @@ nix-env -iA \
     nixpkgs.tree \
 #    nixpkgs.kotlin \
 #    nixpkgs.kotlin-language-server
+
+
 
 # unstable packages
 # nix-env -f channel:nixpkgs-unstable -iA \

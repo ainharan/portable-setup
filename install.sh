@@ -9,7 +9,8 @@ install_nix_plugins() {
 }
 
 install_tmux_plugins() {
-    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/.tmux/plugins/tpm
+    local TPM_DIR=~/.config/tmux/.tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm $TPM_DIR || echo "Updating existing repo..."; git --git-dir=$TPM_DIR/.git pull
     ~/.config/tmux/.tmux/plugins/tpm/bin/install_plugins
 }
 
@@ -37,7 +38,7 @@ install_plugins() {
 }
 
 configure_dotfiles() {
-    git clone https://github.com/ainharan/dotfiles.git ~/
+    git clone https://github.com/ainharan/dotfiles.git ~/.dotfiles
     ls -1 ~/.dotfiles | 
         while read folder; do
             stow -d ~/.dotfiles $folder; 
@@ -47,9 +48,9 @@ configure_dotfiles() {
 
 main() {
     install_nix_package_manager
+    configure_dotfiles
     install_plugins
     default_zsh_shell
-    configure_dotfiles
 }
 
 main "$@"
