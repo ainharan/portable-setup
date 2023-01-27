@@ -12,7 +12,7 @@ nix-env -iA \
     nixpkgs.jq \
     nixpkgs.fzf \
     nixpkgs.ripgrep \
-    nixpkgs.alacritty \
+#    nixpkgs.alacritty \
     nixpkgs.tree \
 #    nixpkgs.kotlin \
 #    nixpkgs.kotlin-language-server
