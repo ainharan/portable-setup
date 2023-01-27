@@ -11,6 +11,7 @@ nix-env -iA \
     nixpkgs.stow \
     nixpkgs.jq \
     nixpkgs.fzf \
+    nixpkgs.fd \
     nixpkgs.ripgrep \
 #    nixpkgs.alacritty \
     nixpkgs.tree \
