@@ -18,9 +18,10 @@ install_zsh_plugins() {
     antibody bundle < ~/.config/zsh/.zsh_plugins.txt > ~/.config/zsh/.zsh_plugins.sh 
 }
 
-install_nvim_plugins_manager() {
+install_nvim_plugins() {
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
         ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 }
 
 default_zsh_shell() {
@@ -34,7 +35,7 @@ install_plugins() {
     install_nix_plugins
     install_tmux_plugins
     install_zsh_plugins
-    install_nvim_plugin_manager
+    install_nvim_plugins
 }
 
 configure_dotfiles() {
